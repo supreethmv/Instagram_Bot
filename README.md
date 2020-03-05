@@ -2,7 +2,7 @@
 Instagram bot for Marketing. Go to a specific hashtag, like their posts, randomly choose a comment to post.
 
 
-Selenium Webdriver is used. Download the compatible version of the google chrome driver for your machine and run 
+Selenium Webdriver is used. Download the compatible version of the google chrome webdriver(from:https://chromedriver.chromium.org/downloads) for your machine and run 
 
 python extract_links.py hashtag1 hashtag2 hashtag3 ...
 
