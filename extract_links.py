@@ -12,10 +12,20 @@ arg_v = sys.argv
 
 browser = webdriver.Chrome('chromedriver.exe')
 hashtags=arg_v[1:]
+print("BREAK POINT---------------------",hashtags)
+
+
 
 for hashtag in hashtags:
     browser.get('https://www.instagram.com/explore/tags/'+hashtag)
-    Pagelength = browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    #a=input()
+    accept_cookies = browser.find_element_by_xpath('/html/body/div[2]/div/div/div/div[2]/button[1]')
+    print("BREAK POINT---------------------",accept_cookies)
+    accept_cookies.click()
+    #Pagelength = browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    Pagelength = browser.execute_script("return document.documentElement.scrollHeight")
+    browser.execute_script("window.scrollTo(0, " + str(Pagelength) + ");")
+    print(Pagelength)
     source = browser.page_source
     f=open(hashtag+".txt",'w+')
     data=bs(source, 'html.parser')
